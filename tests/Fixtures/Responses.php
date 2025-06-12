@@ -41,6 +41,7 @@ function createResponseResource(): array
             toolWebSearchPreview(),
             toolFileSearch(),
             toolImageGeneration(),
+            toolRemoteMcp(),
         ],
         'top_p' => 1.0,
         'truncation' => 'disabled',
@@ -97,6 +98,7 @@ function retrieveResponseResource(): array
             toolWebSearchPreview(),
             toolFileSearch(),
             toolImageGeneration(),
+            toolRemoteMcp(),
         ],
         'top_p' => 1.0,
         'truncation' => 'disabled',
@@ -365,6 +367,18 @@ function toolImageGeneration(): array
         'partial_images' => 0,
         'quality' => 'auto',
         'size' => 'auto',
+    ];
+}
+
+/**
+ * @return array<string, mixed>
+ */
+function toolRemoteMcp(): array
+{
+    return [
+        'type' => 'mcp',
+        'server_label' => 'My test MCP server',
+        'server_url' => 'https://server.example.com/mcp',
     ];
 }
 
